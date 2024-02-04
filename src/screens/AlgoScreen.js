@@ -25,7 +25,8 @@ class AlgoScreen extends React.Component {
 		const algoName = props.location.pathname.slice(1);
 		this.canvasRef = React.createRef();
 		this.animBarRef = React.createRef();
-
+		const queryParams = new URLSearchParams(props.location.search);
+		console.log("first " + queryParams.get('one'));
 		this.state = {
 			algoName: algoName,
 			examplesEnabled: false,
