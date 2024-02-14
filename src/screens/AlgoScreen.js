@@ -21,12 +21,15 @@ import modals from '../examples/ExampleModals';
 class AlgoScreen extends React.Component {
 	constructor(props) {
 		super(props);
-
 		const algoName = props.location.pathname.slice(1);
 		this.canvasRef = React.createRef();
 		this.animBarRef = React.createRef();
-		const queryParams = new URLSearchParams(props.location.search);
-		console.log("first " + queryParams.get('one'));
+		// NEW CHANGES
+		const queryParams = new URLSearchParams(props.location.search); // stores parameter values
+		if (queryParams.size > 0) {
+			const values = queryParams.get('params').split(' '); // splits into array of values
+			console.log("vals " + values.at(0));
+		}
 		this.state = {
 			algoName: algoName,
 			examplesEnabled: false,
